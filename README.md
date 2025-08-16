@@ -104,6 +104,6 @@ A collection of USD and MaterialX assets for educational and testing purposes.
 
 ### Materials
 
-| Interior Map | LCD  |
-| --- | --- |
-| <a href="interior-map"><img width="200" alt="preview" src="interior-map/preview.png" /></a> | <a href="lcd"><img width="200" alt="preview" src="lcd/preview.png" /></a> |
+| Interior Map | LCD  | 2D Gaussian Splat |
+| --- | --- | --- |
+| <a href="interior-map"><img width="200" src="interior-map/preview.png" /></a> | <a href="lcd"><img width="200" src="lcd/preview.png" /></a> | <a href="2dgs"><img width="200" src="2dgs/preview.png" /></a> |

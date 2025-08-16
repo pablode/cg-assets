@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<materialx version="1.38">
+
+  <nodedef name="ND_splat2d" node="splat2d" nodegroup="npr" doc="2D Gaussian Splat">
+    <input name="position" type="vector3" uiname="Position" defaultgeomprop="Pobject"
+           doc="Object space position of the gaussian splat." />
+    <input name="base_opacity" type="float" uiname="Opacity" value="1.0"
+           doc="Base opacity of the gaussian splat." />
+    <output name="out" type="float" />
+  </nodedef>
+
+  <nodegraph name="NG_splat2d" nodedef="ND_splat2d">
+    <magnitude name="posmagnitude" type="float">
+      <input name="in" type="vector3" interfacename="position" />
+    </magnitude>
+    <power name="rxx2" type="float">
+      <input name="in2" type="float" value="2.0" />
+      <input name="in1" type="float" nodename="posmagnitude" />
+    </power>
+    <multiply name="negative0point5timesK" type="float">
+      <input name="in2" type="float" value="-2.5" />
+      <input name="in1" type="float" nodename="rxx2" />
+    </multiply>
+    <exp name="exp2" type="float">
+      <input name="in" type="float" nodename="negative0point5timesK" />
+    </exp>
+    <multiply name="opacitymul" type="float">
+      <input name="in1" type="float" nodename="exp2" />
+      <input name="in2" type="float" interfacename="base_opacity" />
+    </multiply>
+    <output name="out" type="float" nodename="opacitymul" />
+  </nodegraph>
+
+</materialx>

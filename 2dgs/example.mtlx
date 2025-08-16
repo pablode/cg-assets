@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<materialx version="1.39" colorspace="lin_rec709">
+  <xi:include href="splat2d.mtlx" />
+
+  <splat2d name="splat" type="float">
+    <input name="base_opacity" type="float" value="0.8" />
+  </splat2d>
+
+  <surface_unlit name="surface_unlit" type="surfaceshader">
+    <input name="emission_color" type="color3" value="0, 0, 1" />
+    <input name="opacity" type="float" nodename="splat" />
+  </surface_unlit>
+
+  <surfacematerial name="surfacematerial" type="material">
+    <input name="surfaceshader" type="surfaceshader" nodename="surface_unlit" />
+  </surfacematerial>
+
+</materialx>
